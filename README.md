@@ -1,24 +1,8 @@
 # my_gin_cli
 
-my_gin_cli: Simple Single Golang Web Service
-
-go-crud正式改名为my_gin_cli!
-
 使用my_gin_cli开发Web服务: 用最简单的架构，实现够用的框架，服务海量用户
 
-https://github.com/bydmm/singo
 
-## my_gin_cli文档
-
-https://my_gin_cli.gourouting.com/
-
-## 视频实况教程
-
-[让我们写个G站吧！Golang全栈编程实况](https://space.bilibili.com/10/channel/detail?cid=78794)
-
-## 使用my_gin_cli开发的项目实例
-
-https://github.com/bydmm/giligili
 
 ## 目的
 
@@ -74,9 +58,8 @@ GIN_MODE="debug"
 本项目使用[Go Mod](https://github.com/golang/go/wiki/Modules)管理依赖。
 
 ```shell
-go mod init go-crud
-export GOPROXY=http://mirrors.aliyun.com/goproxy/
-go run main.go // 自动安装
+go mod tidy
+export GOPROXY=https://goproxy.cn/
 ```
 
 ## 运行
