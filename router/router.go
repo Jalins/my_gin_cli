@@ -1,17 +1,22 @@
-package server
+package router
 
 import (
 	"os"
-	"singo/api"
-	"singo/middleware"
+	"my_gin_cli/api"
+	"my_gin_cli/middleware"
 
 	"github.com/gin-gonic/gin"
+
+	swaggerFiles "github.com/swaggo/files"
+	ginSwagger "github.com/swaggo/gin-swagger"
 )
 
 // NewRouter 路由配置
 func NewRouter() *gin.Engine {
 	r := gin.Default()
 
+	url := ginSwagger.URL(os.Getenv("SWAGGER_ADDR"))
+	r.GET("/swagger/*any", ginSwagger.WrapHandler(swaggerFiles.Handler, url))
 	// 中间件, 顺序不能改
 	r.Use(middleware.Session(os.Getenv("SESSION_SECRET")))
 	r.Use(middleware.Cors())

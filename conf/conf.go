@@ -2,9 +2,9 @@ package conf
 
 import (
 	"os"
-	"singo/cache"
-	"singo/model"
-	"singo/util"
+	"my_gin_cli/cache"
+	"my_gin_cli/model"
+	"my_gin_cli/util"
 
 	"github.com/joho/godotenv"
 )

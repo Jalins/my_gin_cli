@@ -2,7 +2,7 @@ package cache
 
 import (
 	"os"
-	"singo/util"
+	"my_gin_cli/util"
 	"strconv"
 
 	"github.com/go-redis/redis"

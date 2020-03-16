@@ -1,22 +1,22 @@
-# Singo
+# my_gin_cli
 
-Singo: Simple Single Golang Web Service
+my_gin_cli: Simple Single Golang Web Service
 
-go-crud正式改名为Singo!
+go-crud正式改名为my_gin_cli!
 
-使用Singo开发Web服务: 用最简单的架构，实现够用的框架，服务海量用户
+使用my_gin_cli开发Web服务: 用最简单的架构，实现够用的框架，服务海量用户
 
 https://github.com/bydmm/singo
 
-## Singo文档
+## my_gin_cli文档
 
-https://singo.gourouting.com/
+https://my_gin_cli.gourouting.com/
 
 ## 视频实况教程
 
 [让我们写个G站吧！Golang全栈编程实况](https://space.bilibili.com/10/channel/detail?cid=78794)
 
-## 使用Singo开发的项目实例
+## 使用my_gin_cli开发的项目实例
 
 https://github.com/bydmm/giligili
 
@@ -85,4 +85,4 @@ go run main.go // 自动安装
 go run main.go
 ```
 
-项目运行后启动在3000端口（可以修改，参考gin文档)
+项目运行后启动在8080端口（可以修改，参考gin文档)

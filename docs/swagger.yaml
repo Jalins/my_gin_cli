@@ -1,0 +1,126 @@
+basePath: /api/v1
+definitions:
+  serializer.Response:
+    properties:
+      code:
+        type: integer
+      data:
+        type: object
+      error:
+        type: string
+      msg:
+        type: string
+    type: object
+  service.UserLoginService:
+    properties:
+      password:
+        type: string
+      user_name:
+        type: string
+    required:
+    - password
+    - user_name
+    type: object
+  service.UserRegisterService:
+    properties:
+      nickname:
+        type: string
+      password:
+        type: string
+      password_confirm:
+        type: string
+      user_name:
+        type: string
+    required:
+    - nickname
+    - password
+    - password_confirm
+    - user_name
+    type: object
+host: localhost:8080
+info:
+  contact: {}
+  description: 项目名称 swagger api文档
+  license: {}
+  title: 项目名称 swagger
+  version: "1.0"
+paths:
+  /user/login:
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: 验证该用户的账户是否在数据库存在
+        in: body
+        name: UserLoginService
+        required: true
+        schema:
+          $ref: '#/definitions/service.UserLoginService'
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/serializer.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/serializer.Response'
+      summary: 用户登录
+      tags:
+      - 用户
+  /user/logout:
+    get:
+      consumes:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/serializer.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/serializer.Response'
+      summary: 用户退出
+      tags:
+      - 用户
+  /user/me:
+    get:
+      consumes:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/serializer.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/serializer.Response'
+      summary: 用户详情
+      tags:
+      - 用户
+  /user/register:
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: 往数据库中插入一个新的用户
+        in: body
+        name: UserRegisterService
+        required: true
+        schema:
+          $ref: '#/definitions/service.UserRegisterService'
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/serializer.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/serializer.Response'
+      summary: 用户注册
+      tags:
+      - 用户
+swagger: "2.0"
