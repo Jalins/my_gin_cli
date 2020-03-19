@@ -24,8 +24,6 @@ func Init() {
 		fmt.Println("配置发生变更：", e.Name)
 	})
 
-	// 设置日志级别
-	util.BuildLogger(viper.GetString("logger.log_level"))
 
 	// 读取翻译文件
 	if err := LoadLocales("conf/locales/zh-cn.yaml"); err != nil {

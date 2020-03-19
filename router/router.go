@@ -15,9 +15,14 @@ import (
 func NewRouter() *gin.Engine {
 	r := gin.Default()
 
-	url := ginSwagger.URL(viper.GetString("swagger.swagger.addr"))
+	// 使用日志中间件
+	r.Use(middleware.LoggerToFile())
+
+	// 使用swagger文档
+	url := ginSwagger.URL(viper.GetString("swagger.swagger_addr"))
 	r.GET("/swagger/*any", ginSwagger.WrapHandler(swaggerFiles.Handler, url))
 	// 中间件, 顺序不能改
+
 	r.Use(middleware.Session(viper.GetString("session.session_secret")))
 	r.Use(middleware.Cors())
 	r.Use(middleware.CurrentUser())

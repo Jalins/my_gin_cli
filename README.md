@@ -18,6 +18,7 @@
 4. [Go-Redis](https://github.com/go-redis/redis): Golang Redis客户端
 5. [Viper](https://github.com/spf13/viper): 开发环境下的环境变量工具，方便使用环境变量
 6. [Gin-Cors](https://github.com/gin-contrib/cors): Gin框架提供的跨域中间件
+7. [Logrus](https://github.com/sirupsen/logrus): 日志中间件，使用`file-rotatelogs`进行日志切割
 7. 自行实现了国际化i18n的一些基本功能
 8. 本项目是使用基于cookie实现的session来保存登录状态的，如果需要可以自行修改为token验证
 
@@ -39,6 +40,7 @@
 6. auth权限控制文件夹
 7. util一些通用的小工具
 8. conf放一些静态存放的配置文件，其中locales内放置翻译相关的配置文件
+9. logs用于存放日志
 
 ## Viper
 
@@ -58,7 +60,9 @@
     "session_secret": "setOnProducation"
   },
   "logger": {
-    "log_level": "debug"
+    "log_level": "debug",
+    "log_file_path": "./logs",
+    "log_file_name": "logs"
   },
   "swagger": {
     "swagger_addr": "http://localhost:8080/swagger/doc.json"
