@@ -1,7 +1,7 @@
 package router
 
 import (
-	"os"
+	"github.com/spf13/viper"
 	"my_gin_cli/api"
 	"my_gin_cli/middleware"
 
@@ -15,10 +15,10 @@ import (
 func NewRouter() *gin.Engine {
 	r := gin.Default()
 
-	url := ginSwagger.URL(os.Getenv("SWAGGER_ADDR"))
+	url := ginSwagger.URL(viper.GetString("swagger.swagger.addr"))
 	r.GET("/swagger/*any", ginSwagger.WrapHandler(swaggerFiles.Handler, url))
 	// 中间件, 顺序不能改
-	r.Use(middleware.Session(os.Getenv("SESSION_SECRET")))
+	r.Use(middleware.Session(viper.GetString("session.session_secret")))
 	r.Use(middleware.Cors())
 	r.Use(middleware.CurrentUser())
 

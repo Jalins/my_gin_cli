@@ -1,7 +1,7 @@
 package cache
 
 import (
-	"os"
+	"github.com/spf13/viper"
 	"my_gin_cli/util"
 	"strconv"
 
@@ -13,10 +13,10 @@ var RedisClient *redis.Client
 
 // Redis 在中间件中初始化redis链接
 func Redis() {
-	db, _ := strconv.ParseUint(os.Getenv("REDIS_DB"), 10, 64)
+	db, _ := strconv.ParseUint(viper.GetString("redis.redis_db"), 10, 64)
 	client := redis.NewClient(&redis.Options{
-		Addr:       os.Getenv("REDIS_ADDR"),
-		Password:   os.Getenv("REDIS_PW"),
+		Addr:       viper.GetString("redis.redis_addr"),
+		Password:   viper.GetString("redis.redis_pw"),
 		DB:         int(db),
 		MaxRetries: 1,
 	})

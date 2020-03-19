@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"my_gin_cli/conf"
 	"my_gin_cli/router"
 
@@ -19,5 +20,9 @@ func main() {
 
 	// 装载路由
 	r := router.NewRouter()
-	r.Run(":8080")
+
+
+	if err := r.Run(":8080"); err != nil {
+		fmt.Println("服务器启动失败！",err)
+	}
 }

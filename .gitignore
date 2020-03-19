@@ -2,3 +2,4 @@
 .env
 go.sum
 .idea/
+conf/config.json
