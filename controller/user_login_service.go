@@ -1,4 +1,4 @@
-package service
+package controller
 
 import (
 	"my_gin_cli/model"
@@ -11,7 +11,7 @@ import (
 // UserLoginService 管理用户登录的服务
 type UserLoginService struct {
 	UserName string `form:"user_name" json:"user_name" binding:"required,min=5,max=30"`
-	Password string `form:"password" json:"password" binding:"required,min=8,max=40"`
+	Password string `form:"password" json:"password" binding:"required,min=6,max=40"`
 }
 
 // setSession 设置session
@@ -37,5 +37,9 @@ func (service *UserLoginService) Login(c *gin.Context) serializer.Response {
 	// 设置session
 	service.setSession(c, user)
 
-	return serializer.BuildUserResponse(user)
+	return serializer.Response{
+		Code:  200,
+		Data:  user,
+		Msg:   "登录成功",
+	}
 }

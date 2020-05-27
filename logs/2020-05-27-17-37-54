@@ -1,0 +1,6 @@
+2020/05/27 17:37:54 Start...
+2020-05-27T17:38:24.219+0800	debug	gin@v1.4.0/context.go:124	Enforcer&{./conf/rbac_models.conf map[e:map[e:0xc000350360] g:map[g:0xc0003502a0] m:map[m:0xc000350420] p:map[p:0xc000350240] r:map[r:0xc0003501e0]] map[globMatch:0x9dbb60 ipMatch:0x9db950 keyMatch:0x9da530 keyMatch2:0x9da8e0 keyMatch3:0x9dac90 keyMatch4:0x9db370 regexMatch:0x9db580] 0x1d2b608 0xc00006c050 <nil> 0xc00020a580 true true true true}
+2020-05-27T17:38:24.229+0800	debug	gin@v1.4.0/context.go:124	请求的URI为：/api/v1/admin/remove
+2020-05-27T17:38:24.229+0800	debug	gin@v1.4.0/context.go:124	请求方法为：GET
+2020-05-27T17:38:24.229+0800	debug	gin@v1.4.0/context.go:124	当前用户角色为：admin
+2020-05-27T17:38:24.230+0800	debug	gin@v1.4.0/context.go:124	很遗憾,权限验证没有通过

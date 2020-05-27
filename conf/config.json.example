@@ -10,6 +10,9 @@
   "session": {
     "session_secret": "setOnProducation"
   },
+  "rbac": {
+    "database": "user:password@tcp(ip)/dbname"
+  },
   "logger": {
     "log_level": "debug",
     "log_file_path": "./logs",

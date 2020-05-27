@@ -1,11 +1,10 @@
 package api
 
 import (
-	"my_gin_cli/serializer"
-	"my_gin_cli/service"
-
 	"github.com/gin-contrib/sessions"
 	"github.com/gin-gonic/gin"
+	"my_gin_cli/controller"
+	"my_gin_cli/serializer"
 )
 
 // @Summary 用户注册
@@ -17,7 +16,7 @@ import (
 // @Failure 500 object serializer.Response 注册失败
 // @Router /user/register [post]
 func UserRegister(c *gin.Context) {
-	var service service.UserRegisterService
+	var service controller.UserRegisterService
 	if err := c.ShouldBind(&service); err == nil {
 		res := service.Register()
 		c.JSON(200, res)
@@ -35,7 +34,7 @@ func UserRegister(c *gin.Context) {
 // @Failure 500 object serializer.Response 登录失败
 // @Router /user/login [post]
 func UserLogin(c *gin.Context) {
-	var service service.UserLoginService
+	var service controller.UserLoginService
 	if err := c.ShouldBind(&service); err == nil {
 		res := service.Login(c)
 		c.JSON(200, res)
@@ -53,7 +52,10 @@ func UserLogin(c *gin.Context) {
 // @Router /user/me [get]
 func UserMe(c *gin.Context) {
 	user := CurrentUser(c)
-	res := serializer.BuildUserResponse(*user)
+	res := serializer.Response{
+		Code:  200,
+		Data:  *user,
+	}
 	c.JSON(200, res)
 }
 

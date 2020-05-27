@@ -1,7 +1,7 @@
 package model
 
 import (
-	"my_gin_cli/util"
+	"my_gin_cli/logger"
 	"time"
 
 	"github.com/jinzhu/gorm"
@@ -19,7 +19,7 @@ func Database(connString string) {
 	db.LogMode(true)
 	// Error
 	if err != nil {
-		util.Log().Panic("连接数据库不成功", err)
+		logger.Logger.Panic("连接数据库不成功", err)
 	}
 	//设置连接池
 	//空闲

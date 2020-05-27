@@ -1,0 +1,4 @@
+2020/05/27 17:41:45 Start...
+2020-05-27T17:42:12.516+0800	debug	gin@v1.4.0/context.go:124	Enforcer&{./conf/rbac_models.conf map[e:map[e:0xc0000862a0] g:map[g:0xc0000861e0] m:map[m:0xc000086360] p:map[p:0xc000086180] r:map[r:0xc000086420]] map[globMatch:0x9dbb60 ipMatch:0x9db950 keyMatch:0x9da530 keyMatch2:0x9da8e0 keyMatch3:0x9dac90 keyMatch4:0x9db370 regexMatch:0x9db580] 0x1d2b608 0xc00006def0 <nil> 0xc000850440 true true true true}
+2020-05-27T17:42:12.525+0800	debug	gin@v1.4.0/context.go:124	当前用户角色为：admin
+2020-05-27T17:42:12.525+0800	debug	gin@v1.4.0/context.go:124	恭喜您,权限验证通过

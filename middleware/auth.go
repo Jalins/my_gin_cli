@@ -19,7 +19,6 @@ func CurrentUser() gin.HandlerFunc {
 				c.Set("user", &user)
 			}
 		}
-		c.Next()
 	}
 }
 

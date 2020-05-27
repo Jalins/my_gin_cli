@@ -1,4 +1,4 @@
-package service
+package controller
 
 import (
 	"my_gin_cli/model"
@@ -9,8 +9,8 @@ import (
 type UserRegisterService struct {
 	Nickname        string `form:"nickname" json:"nickname" binding:"required,min=2,max=30"`
 	UserName        string `form:"user_name" json:"user_name" binding:"required,min=5,max=30"`
-	Password        string `form:"password" json:"password" binding:"required,min=8,max=40"`
-	PasswordConfirm string `form:"password_confirm" json:"password_confirm" binding:"required,min=8,max=40"`
+	Password        string `form:"password" json:"password" binding:"required,min=6,max=40"`
+	PasswordConfirm string `form:"password_confirm" json:"password_confirm" binding:"required,min=6,max=40"`
 }
 
 // valid 验证表单
@@ -40,15 +40,23 @@ func (service *UserRegisterService) valid() *serializer.Response {
 		}
 	}
 
+
 	return nil
 }
 
 // Register 用户注册
 func (service *UserRegisterService) Register() serializer.Response {
+
 	user := model.User{
 		Nickname: service.Nickname,
 		UserName: service.UserName,
 		Status:   model.Active,
+	}
+
+	if service.UserName == "admin" {
+		user.Role = "admin"
+	}else {
+		user.Role = "member"
 	}
 
 	// 表单验证
@@ -70,5 +78,9 @@ func (service *UserRegisterService) Register() serializer.Response {
 		return serializer.ParamErr("注册失败", err)
 	}
 
-	return serializer.BuildUserResponse(user)
+	return serializer.Response{
+		Code: 200,
+		Data: user,
+		Msg: "注册成功",
+	}
 }

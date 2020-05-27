@@ -12,6 +12,7 @@ type User struct {
 	PasswordDigest string
 	Nickname       string
 	Status         string
+	Role 		   string
 	Avatar         string `gorm:"size:1000"`
 }
 
@@ -20,10 +21,6 @@ const (
 	PassWordCost = 12
 	// Active 激活用户
 	Active string = "active"
-	// Inactive 未激活用户
-	Inactive string = "inactive"
-	// Suspend 被封禁用户
-	Suspend string = "suspend"
 )
 
 // GetUser 用ID获取用户

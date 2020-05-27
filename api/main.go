@@ -11,13 +11,6 @@ import (
 	validator "gopkg.in/go-playground/validator.v8"
 )
 
-// Ping 状态检查页面
-func Ping(c *gin.Context) {
-	c.JSON(200, serializer.Response{
-		Code: 0,
-		Msg:  "Pong",
-	})
-}
 
 // CurrentUser 获取当前用户
 func CurrentUser(c *gin.Context) *model.User {
@@ -46,4 +39,10 @@ func ErrorResponse(err error) serializer.Response {
 	}
 
 	return serializer.ParamErr("参数错误", err)
+}
+
+func Remove(c *gin.Context)  {
+	c.JSON(200, gin.H{
+		"message":"你是管理员，你可以操作",
+	})
 }
