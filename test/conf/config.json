@@ -1,0 +1,24 @@
+{
+  "database": {
+    "mysql": "root:123456@(120.25.165.21)/my_gin_cli?charset=utf8mb4&parseTime=True&loc=Local"
+  },
+  "redis": {
+    "redis_addr": "120.25.165.21:6379",
+    "redis_pw": "",
+    "redis_db": ""
+  },
+  "session": {
+    "session_secret": "session_secret"
+  },
+  "rbac": {
+    "database": "root:123456@tcp(120.25.165.21:3306)/rbac_db"
+  },
+  "logger": {
+    "log_level": "debug",
+    "log_file_path": "./logs",
+    "log_file_name": "logs"
+  },
+  "swagger": {
+    "swagger_addr": "http://localhost:8080/swagger/doc.json"
+  }
+}

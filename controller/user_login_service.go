@@ -43,3 +43,17 @@ func (service *UserLoginService) Login(c *gin.Context) serializer.Response {
 		Msg:   "登录成功",
 	}
 }
+
+func (service *UserLoginService)List() (serializer.Response, error) {
+	var user []model.User
+
+	if err := model.DB.Find(&user).Error; err != nil {
+		return serializer.ParamErr("查询所有用户失败", nil), err
+	}
+
+	return serializer.Response{
+		Code:  200,
+		Data:  &user,
+		Msg:   "用户列表",
+	}, nil
+}

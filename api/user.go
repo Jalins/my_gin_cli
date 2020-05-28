@@ -43,6 +43,25 @@ func UserLogin(c *gin.Context) {
 	}
 }
 
+
+// @Summary 用户列表
+// @Tags 用户
+// @version 1.0
+// @Accept application/json
+// @Param UserListService body service.UserListService true "查询所有的用户"
+// @Success 200 object serializer.Response 成功后返回值
+// @Failure 500 object serializer.Response 登录失败
+// @Router /user/list [get]
+func UserList(c *gin.Context) {
+	var service controller.UserLoginService
+	if res, err := service.List(); err == nil {
+		c.JSON(200, res)
+	} else {
+		c.JSON(200, ErrorResponse(err))
+	}
+}
+
+
 // @Summary 用户详情
 // @Tags 用户
 // @version 1.0

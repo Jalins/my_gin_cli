@@ -11,8 +11,6 @@ import (
 
 func init() {
 	logger.LogConf()
-
-
 }
 
 // @title 项目名称 swagger

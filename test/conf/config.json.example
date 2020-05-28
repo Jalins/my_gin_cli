@@ -1,0 +1,24 @@
+{
+  "database": {
+    "mysql": "user:password@(ip)/dbname?charset=utf8&parseTime=True&loc=Local"
+  },
+  "redis": {
+    "redis_addr": "ip:6379",
+    "redis_pw": "",
+    "redis_db": ""
+  },
+  "session": {
+    "session_secret": "setOnProducation"
+  },
+  "rbac": {
+    "database": "user:password@tcp(ip)/dbname"
+  },
+  "logger": {
+    "log_level": "debug",
+    "log_file_path": "./logs",
+    "log_file_name": "logs"
+  },
+  "swagger": {
+    "swagger_addr": "http://localhost:8080/swagger/doc.json"
+  }
+}

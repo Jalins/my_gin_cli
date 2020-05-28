@@ -36,7 +36,7 @@ func NewRouter() *gin.Engine {
 		{
 			admin.Use(middleware.Authorize())
 			// 需要admin用户才能操作
-			admin.GET("admin/remove", api.Remove)
+			admin.GET("user/list", api.UserList)
 		}
 
 
